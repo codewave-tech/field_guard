@@ -1,19 +1,9 @@
 library field_guard;
 
 import 'package:field_guard/src/error_messages.dart';
+import 'package:flutter/services.dart';
 
-// todo
-/// pan
-/// phoneNumber (country basis) --> format input
-/// range
-/// length
-/// name - with specified casing
-/// trim
-/// bank account validation (IN)
-/// email
-/// allowOnly (numbers,alphabets,alphanumeric,customCharacters)
-/// regex
-/// disallow multiples (character)
+part 'formatter.dart';
 
 typedef FormFieldStringValidator = String? Function(String? val);
 
