@@ -1,10 +1,11 @@
 library field_guard;
 
-import 'package:field_guard/src/error_messages.dart';
 import 'package:flutter/services.dart';
+import 'error_messages.dart';
 
 part 'formatter.dart';
 
+// part 'error_messages.dart';
 typedef FormFieldStringValidator = String? Function(String? val);
 
 class FieldGuardValidator {
@@ -114,7 +115,7 @@ class FieldGuardValidator {
     return matchRegex(regex, _errorMessages.invaidIFSCErrorMessage());
   }
 
-  // validate PAN INDIA
+  // validate Email
   FieldGuardValidator validEmail() {
     String pattern = r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$';
     RegExp regex = RegExp(pattern);
@@ -130,5 +131,44 @@ class FieldGuardValidator {
       return null;
     });
     return this;
+  }
+
+  // validte strong passwords
+  FieldGuardValidator strongPassword() {
+    String pattern =
+        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$';
+    RegExp regex = RegExp(pattern);
+    return matchRegex(
+      regex,
+      _errorMessages.weakPasswordErrorMessage(),
+    );
+  }
+
+  // validate account number
+  FieldGuardValidator validAccountNumber() {
+    String pattern = r'^[0-9]{9,18}$';
+    RegExp regex = RegExp(pattern);
+    return matchRegex(regex, _errorMessages.invalidAccountNumberErrorMessage());
+  }
+
+  // validate UPI ID
+  FieldGuardValidator validUpiID() {
+    String pattern = r'^[a-zA-Z0-9.\-_]{2,256}@[a-zA-Z]{2,64}$';
+    RegExp regex = RegExp(pattern);
+    return matchRegex(regex, _errorMessages.invalidUpiIdErrorMessage());
+  }
+
+  // validate Indian Zip code
+  FieldGuardValidator validIndianZipCode() {
+    String pattern = r'^[1-9]{1}[0-9]{2}\s{0,1}[0-9]{3}$';
+    RegExp regex = RegExp(pattern);
+    return matchRegex(regex, _errorMessages.invalidZipCodeErrorMessage());
+  }
+
+  // validate credit card number
+  FieldGuardValidator validCreditCardNumber() {
+    String pattern = r'^[0-9]{16}$';
+    RegExp regex = RegExp(pattern);
+    return matchRegex(regex, _errorMessages.invalidCardNumber());
   }
 }
