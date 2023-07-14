@@ -30,8 +30,11 @@ class _HomeState extends State<Home> {
               keyboardType: TextInputType.emailAddress,
               controller: textEditingController,
               decoration: const InputDecoration(border: OutlineInputBorder()),
-              validator:
-                  FieldGuardValidator().required().validEmail().validate(),
+              validator: FieldGuardValidator()
+                  .required()
+                  .validEmail()
+                  .validEmail()
+                  .validate(),
               autovalidateMode: AutovalidateMode.onUserInteraction,
               inputFormatters: FieldGuardFormatter()
                   .toTitleCase()
@@ -43,17 +46,5 @@ class _HomeState extends State<Home> {
         ),
       ),
     );
-  }
-
-  String _titleCase(String input) {
-    if (input.isEmpty) return input;
-
-    List<String> words = input.split(' ');
-    List<String> titleCaseWords = words.map((word) {
-      if (word.isEmpty) return word;
-      return word[0].toUpperCase() + word.substring(1).toLowerCase();
-    }).toList();
-
-    return titleCaseWords.join(' ');
   }
 }
