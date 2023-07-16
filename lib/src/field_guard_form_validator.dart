@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 part of field_guard;
 
 class FieldGuardCustomValidatorForm {
@@ -49,6 +50,17 @@ class FieldGuardCustomValidatorForm {
 
     return _linkerMap[key]!.controller;
   }
+
+  void updateLinkerElement(FieldGuardLinkerElement linkerElement) {
+    _linkerMap[linkerElement.key] = linkerElement;
+  }
+
+  FieldGuardLinkerElement findLinkerElementByKey(String key) {
+    if (!_linkerMap.containsKey(key)) {
+      throw ("No such key exists");
+    }
+    return _linkerMap[key]!;
+  }
 }
 
 class FieldGuardLinkerElement {
@@ -61,4 +73,15 @@ class FieldGuardLinkerElement {
     required this.controller,
     required this.validator,
   });
+
+  FieldGuardLinkerElement update({
+    TextEditingController? controller,
+    FieldGuardValidator? validator,
+  }) {
+    return FieldGuardLinkerElement(
+      key: key,
+      controller: controller ?? this.controller,
+      validator: validator ?? this.validator,
+    );
+  }
 }
