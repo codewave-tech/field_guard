@@ -1,6 +1,6 @@
 name: field_guard
 description: Field validation, formatting, and linked forms for Flutter apps.
-version: 1.0.0
+version: 1.0.2
 homepage: https://github.com/codewave-tech/field_guard
 
 environment:

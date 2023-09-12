@@ -1,5 +1,3 @@
-Certainly! Below is the documentation for the "field_guard" library, including all the classes and methods described earlier.
-
 ## field_guard
 
 The `field_guard` library provides a set of tools to implement field validation and formatting functionalities for Flutter applications. It offers reusable components to enforce various rules and constraints on user input, making it easier to create custom forms with linked elements and error messages.

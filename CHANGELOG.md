@@ -9,3 +9,11 @@
 - Includes customizable error messages in `FieldGuardErrorMessages` for clear feedback to users during validation.
 
 - Enhances Flutter app interactivity and data consistency with modular and reusable components.
+
+## 1.0.1
+
+- updated docs
+
+## 1.0.2
+
+- exported error message class
