@@ -22,6 +22,11 @@ class FieldGuardFormatter {
     return this;
   }
 
+  FieldGuardFormatter setMaxLength(int n) {
+    _formatters.add(LengthLimitingTextInputFormatter(n));
+    return this;
+  }
+
   FieldGuardFormatter allowedInput(FieldGuardAllowedInput allowedInput) {
     _formatters.add(
       FilteringTextInputFormatter.allow(
