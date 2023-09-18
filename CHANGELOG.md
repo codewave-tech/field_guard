@@ -17,3 +17,7 @@
 ## 1.0.2
 
 - exported error message class
+
+## 1.0.3
+
+- add setMaxLength to FieldGuardFormatter
