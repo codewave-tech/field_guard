@@ -22,13 +22,13 @@ class FieldGuardCustomValidatorForm {
 
   bool validateForm() {
     for (int idx = 0; idx < _linkers.length; idx++) {
-      String? res = _linkers[idx]
-          .validator
-          .validate()
-          .call(_linkers[idx].controller.text);
+      FieldGuardLinkerElement? linker = _linkerMap[_linkers[idx].key];
+      if (linker == null) continue;
+      String? res =
+          linker.validator.validate().call(_linkers[idx].controller.text);
       if (res != null) {
         // ignore: invalid_use_of_protected_member, invalid_use_of_visible_for_testing_member
-        _linkers[idx].controller.notifyListeners();
+        linker.controller.notifyListeners();
         return false;
       }
     }
