@@ -91,6 +91,17 @@ class FieldGuardValidator {
     return this;
   }
 
+  // matching the values of two controllers
+  FieldGuardValidator matchControllers(TextEditingController a) {
+    _createValidation((val) {
+      if (a.text != val) return _errorMessages.matchController();
+
+      return null;
+    });
+
+    return this;
+  }
+
   // length
   FieldGuardValidator length(int len) {
     _createValidation((val) {

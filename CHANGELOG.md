@@ -21,3 +21,7 @@
 ## 1.0.3
 
 - add setMaxLength to FieldGuardFormatter
+
+## 1.0.4
+
+- fixed validate form not working when the linker element was updated
