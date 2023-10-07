@@ -25,3 +25,7 @@
 ## 1.0.4
 
 - fixed validate form not working when the linker element was updated
+
+## 1.0.5
+
+- Added a validator to match with a text editing contoller for confirmation purposes
